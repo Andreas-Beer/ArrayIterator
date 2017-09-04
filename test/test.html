@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Array Iterator Test</title>
+  </head>
+  <body>
+    
+    <script src="../ArrayIterator.js" ></script>
+    <script>
+
+      var aData = [
+        '00 - Red      ^',
+        '01 - Green     ',
+        '02 - Blue      ',
+        '03 - Yellow    ',
+        '04 - Violett   ',
+        '05 - Orange   $'
+      ];
+      
+
+      var a = ArrayIterator(aData);
+
+      console.log(a);
+      
+      document.writeln('<pre>');
+      
+      document.writeln('<br><hr>');
+      document.writeln(a.get(0));
+      document.writeln(a.get(1));
+      document.writeln(a.get(2));
+      document.writeln(a.get(3));
+      document.writeln(a.get(4));
+      document.writeln(a.get(5));
+      document.writeln(a.get(6));
+      document.writeln(a.get(7));
+      document.writeln(a.get(8));
+      
+      document.writeln('<br><hr>');
+      document.writeln(a.get(0));
+      document.writeln(a.curr());
+      document.writeln(a.curr());
+      document.writeln(a.curr());
+      
+      document.writeln('<br><hr>');
+      document.writeln(a.get(0));
+      document.writeln(a.next());
+      document.writeln(a.next());
+      document.writeln(a.next());
+      document.writeln(a.next());
+      document.writeln(a.next());
+      document.writeln(a.next());
+      document.writeln(a.next());
+
+      document.writeln('<br><hr>');
+      document.writeln(a.get(0));
+      document.writeln(a.prev());
+      document.writeln(a.prev());
+      document.writeln(a.prev());
+      document.writeln(a.prev());
+      document.writeln(a.prev());
+      document.writeln(a.prev());
+      document.writeln(a.prev());
+      document.writeln(a.prev());
+      document.writeln(a.prev());
+      document.writeln(a.prev());
+      document.writeln(a.prev());
+      
+      document.writeln('<br><hr>');
+      document.writeln(a.get(0));
+      document.writeln(a.walk(2));
+      document.writeln(a.walk(3));
+      document.writeln(a.walk(2));
+      document.writeln(a.walk(0));
+      
+      document.writeln('<br><hr>');
+      for (var i = 0; i < a.length; i++) {
+        document.writeln(a[i]);
+      }
+
+      document.writeln('</pre>');
+
+    </script>
+
+  </body>
+</html>
