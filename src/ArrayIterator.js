@@ -3,21 +3,13 @@ ArrayIterator = function (array, circle) {
   var counter = 0;
   circle = circle === undefined ? true : false;
   
-  var obj = {
-    length: array.length,
-    
-    walk: walk,
-    next: next,
-    prev: prev,
-    curr: curr,
-    get : get
-  };
-  
-  for (var i = 0; i < array.length; i++) {
-    obj[i] = array[i];
-  }
-  
-  return obj;
+  array.walk = walk;
+  array.next = next;
+  array.prev = prev;
+  array.curr = curr;
+  array.get = get;
+
+  return array;
   
   function walk (steps) {
     if (circle) {
@@ -29,13 +21,13 @@ ArrayIterator = function (array, circle) {
   }
   function next () {
     return walk(1);
-  };
+  }
   function prev () {
     return walk(-1);
-  };
+  }
   function curr () {
     return array[counter];
-  };
+  }
   function get (index) {
     counter = index % array.length;
     return curr();

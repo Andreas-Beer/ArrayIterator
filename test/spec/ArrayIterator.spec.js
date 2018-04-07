@@ -5,15 +5,23 @@ describe('ArrayIterator', function () {
   var a;
 
   beforeEach(function () {
-    a = ArrayIterator([1,2]);
+    a = new ArrayIterator([1,2]);
   });
-  
-  describe('length', function () {
+
+  describe('decorator', function () {
     it('returns the length of the given array', function () {
       expect(a.length).toBe(2);
     });
+    it('has the array as prototype', function () {
+      expect(a.push).toBeDefined();
+    });
+    it('delegates the functioncalls to the array ', function () {
+      a.push(3);
+      expect(a.length).toBe(3);
+      expect(a[2]).toBe(3);
+    });
   });
-  
+    
   describe('get({index})', function () {
     it('returns the item by index', function () {
       expect(a.get(0)).toBe(1);
@@ -56,7 +64,7 @@ describe('ArrayIterator', function () {
   describe('walk({steps})', function () {
     
     beforeEach(function () {
-      a = ArrayIterator([1,2,3,4,5]);
+      a = new ArrayIterator([1,2,3,4,5]);
     });
     
     it('returns the item +{steps} away', function () {
@@ -82,7 +90,7 @@ describe('ArrayIterator', function () {
     describe('cycle = false', function () {
       
       beforeEach(function () {
-        a = ArrayIterator([1,2,3,4,5], false);
+        a = new ArrayIterator([1,2,3,4,5], false);
       });
       
       it('stops at the end', function () {
