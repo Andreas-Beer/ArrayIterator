@@ -9,13 +9,11 @@ describe('ArrayIterator', function () {
   });
 
   describe('decorator', function () {
-    it('returns the length of the given array', function () {
-      expect(a.length).toBe(2);
-    });
-    it('has the array as prototype', function () {
+    it('is the given array', function () {
+      expect(a.length).toBe(2);      
       expect(a.push).toBeDefined();
     });
-    it('delegates the functioncalls to the array ', function () {
+    it('delegates the function calls to the array', function () {
       a.push(3);
       expect(a.length).toBe(3);
       expect(a[2]).toBe(3);
