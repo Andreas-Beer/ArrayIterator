@@ -1,6 +1,6 @@
 ArrayIterator = function (array, circle) {
 
-  var counter = 0;
+  var position = 0;
   circle = circle === undefined ? true : false;
   
   array.walk = walk;
@@ -13,9 +13,9 @@ ArrayIterator = function (array, circle) {
   
   function walk (steps) {
     if (circle) {
-      counter = (array.length + counter + steps) % array.length;
+      position = (array.length + position + steps) % array.length;
     } else {
-      counter += steps;
+      position += steps;
     }
     return curr();
   }
@@ -26,11 +26,11 @@ ArrayIterator = function (array, circle) {
     return walk(-1);
   }
   function get (index) {
-    counter = circle ? index % array.length : index;
+    position = circle ? index % array.length : index;
     return curr();
   }
   function curr () {
-    return array[counter];
+    return array[position];
   }
   
 };
