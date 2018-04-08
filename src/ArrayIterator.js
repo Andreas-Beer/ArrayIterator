@@ -17,7 +17,7 @@ ArrayIterator = function (array, circle) {
     } else {
       counter += steps;
     }
-    return array[counter];
+    return curr();
   }
   function next () {
     return walk(1);
@@ -25,12 +25,12 @@ ArrayIterator = function (array, circle) {
   function prev () {
     return walk(-1);
   }
+  function get (index) {
+    counter = circle ? index % array.length : index;
+    return curr();
+  }
   function curr () {
     return array[counter];
-  }
-  function get (index) {
-    counter = index % array.length;
-    return curr();
   }
   
 };
